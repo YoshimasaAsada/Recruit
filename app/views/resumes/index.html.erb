@@ -1,16 +1,17 @@
 <h1>resume_index</h1>
 <div class="container">
   <div class="accordion" id="accordionExample">
-    <% @gakuchikas.each do |gakuchika| %>
+
+    <% @gakuchikas.each do |gakuchika|%>
     <div class="card">
       <div class="card-header" id="heading_gakuchika<%= gakuchika.id %>">
         <h5 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_gakuchika<%= gakuchika.id %>" aria-expanded="true" aria-controls="collapse_gakuchika<%= gakuchika.id %>">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_gakuchika<%= gakuchika.id %>" aria-expanded="false" aria-controls="collapse_gakuchika<%= gakuchika.id %>">
             ガクチカ<%= gakuchika.title %>
           </button>
         </h5>
       </div>
-      <div id="collapse_gakuchika<%= gakuchika.id %>" class="collapse show" aria-labelledby="heading_gakuchika<%= gakuchika.id %>" data-parent="#accordionExample">
+      <div id="collapse_gakuchika<%= gakuchika.id %>" class="collapse" aria-labelledby="heading_gakuchika<%= gakuchika.id %>" data-parent="#accordionExample">
         <div class="card-body">
           <div class="form-group">
           <%= form_with model:gakuchika, url: gakuchika_path(gakuchika), local:true do |f| %>
@@ -30,7 +31,7 @@
           <%= f.text_field :introduction_900, class:"form-control" %>
           <%= f.label :introduction_1000, "1000字"%>
           <%= f.text_field :introduction_1000, class:"form-control" %>
-          <%= f.submit "更新", class:"btn btn-success" %>
+          <%= f.submit "登録", class:"btn btn-success" %>
           <% end %>
           </div>
         </div>
