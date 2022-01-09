@@ -1,0 +1,85 @@
+<h1>resume_index</h1>
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <% @gakuchikas.each do |gakuchika| %>
+    <div class="card">
+      <div class="card-header" id="heading_gakuchika<%= gakuchika.id %>">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_gakuchika<%= gakuchika.id %>" aria-expanded="true" aria-controls="collapse_gakuchika<%= gakuchika.id %>">
+            ガクチカ<%= gakuchika.title %>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse_gakuchika<%= gakuchika.id %>" class="collapse show" aria-labelledby="heading_gakuchika<%= gakuchika.id %>" data-parent="#accordionExample">
+        <div class="card-body">
+          <div class="form-group">
+          <%= form_with model:gakuchika, url: gakuchika_path(gakuchika), local:true do |f| %>
+          <%= f.label :title, "タイトル"%>
+          <%= f.text_field :title, class:"form-control" %>
+          <%= f.label :introduction_400, "400字"%>
+          <%= f.text_field :introduction_400, class:"form-control" %>
+          <%= f.label :introduction_500, "500字"%>
+          <%= f.text_field :introduction_500, class:"form-control" %>
+          <%= f.label :introduction_600, "600字"%>
+          <%= f.text_field :introduction_600, class:"form-control" %>
+          <%= f.label :introduction_700, "700字"%>
+          <%= f.text_field :introduction_700, class:"form-control" %>
+          <%= f.label :introduction_800, "800字"%>
+          <%= f.text_field :introduction_800, class:"form-control" %>
+          <%= f.label :introduction_900, "900字"%>
+          <%= f.text_field :introduction_900, class:"form-control" %>
+          <%= f.label :introduction_1000, "1000字"%>
+          <%= f.text_field :introduction_1000, class:"form-control" %>
+          <%= f.submit "更新", class:"btn btn-success" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <%= link_to "新しいガクチカを作る", new_gakuchika_path %>
+
+    <% @about_myselves.each do |about_myself|%>
+    <div class="card">
+      <div class="card-header" id="heading_about_myself<%= about_myself.id %>">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_about_myself<%= about_myself.id %>" aria-expanded="false" aria-controls="collapse_about_myself<%= about_myself.id %>">
+            自己PR<%= about_myself.title %>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse_about_myself<%= about_myself.id %>" class="collapse" aria-labelledby="heading_about_myself<%= about_myself.id %>" data-parent="#accordionExample">
+        <div class="card-body">
+          <div class="form-group">
+          <%= form_with model:about_myself, url: about_myself_path(about_myself), local:true do |f| %>
+          <%= f.label :title, "タイトル"%>
+          <%= f.text_field :title, class:"form-control" %>
+          <%= f.label :introduction_400, "400字"%>
+          <%= f.text_field :introduction_400, class:"form-control" %>
+          <%= f.label :introduction_500, "500字"%>
+          <%= f.text_field :introduction_500, class:"form-control" %>
+          <%= f.label :introduction_600, "600字"%>
+          <%= f.text_field :introduction_600, class:"form-control" %>
+          <%= f.label :introduction_700, "700字"%>
+          <%= f.text_field :introduction_700, class:"form-control" %>
+          <%= f.label :introduction_800, "800字"%>
+          <%= f.text_field :introduction_800, class:"form-control" %>
+          <%= f.label :introduction_900, "900字"%>
+          <%= f.text_field :introduction_900, class:"form-control" %>
+          <%= f.label :introduction_1000, "1000字"%>
+          <%= f.text_field :introduction_1000, class:"form-control" %>
+          <%= f.submit "登録", class:"btn btn-success" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <%= link_to "新しい自己PRを作る", new_about_myself_path %>
+  </div>
+</div>
+
+
+
+

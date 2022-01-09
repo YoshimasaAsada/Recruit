@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_113233) do
+ActiveRecord::Schema.define(version: 2022_01_08_174111) do
+
+  create_table "about_myselves", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.text "introduction_400"
+    t.text "introduction_500"
+    t.text "introduction_600"
+    t.text "introduction_700"
+    t.text "introduction_800"
+    t.text "introduction_900"
+    t.text "introduction_1000"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gakuchikas", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.text "introduction_400"
+    t.text "introduction_500"
+    t.text "introduction_600"
+    t.text "introduction_700"
+    t.text "introduction_800"
+    t.text "introduction_900"
+    t.text "introduction_1000"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
