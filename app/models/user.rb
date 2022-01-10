@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :gakuchikas, dependent: :destroy
   has_many :about_myselves, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end

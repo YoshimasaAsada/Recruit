@@ -1,0 +1,30 @@
+<h1>interview/show</h1>
+
+
+
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <% @favorites.each do |favorite| %>
+    <div class="card">
+      <div class="card-header" id="heading_interview<%= favorite.interview.id %>">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_interview<%= favorite.interview.id %>" aria-expanded="false" aria-controls="collapse_interview<%= favorite.interview.id %>">
+            <%= favorite.interview.title %>
+          </button>
+        </h5>
+      </div>
+      <div id="collapse_interview<%= favorite.interview.id %>" class="collapse" aria-labelledby="heading_interview<%= favorite.interview.id %>" data-parent="#accordionExample">
+        <div class="card-body">
+          <div class="form-group">
+          <%= form_with model: favorite, url: interview_favorite_path(favorite.interview, favorite), local:true do |f| %>
+          <%= f.label :comment, "コメント" %>
+          <%= f.text_field :comment, class:"form-control" %>
+          <%= f.submit "登録", class:"btn btn-success" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
