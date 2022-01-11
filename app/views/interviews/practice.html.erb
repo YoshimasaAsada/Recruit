@@ -1,0 +1,22 @@
+<h1>面接練習</h1>
+<div class="container">
+  <h1>選択してください</h1>
+  <% @favorites.each do |favorite| %>
+  <%= favorite.interview.title %><br/>
+  <% if favorite.interview.practiced_by?(current_user) %>
+    <p>
+      <%= link_to interview_interview_practices_path(favorite.interview), method: :delete do %>
+        ♥いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to interview_interview_practices_path(favorite.interview), method: :post do %>
+        ♡ いいね
+      <% end %>
+    </p>
+  <% end %>
+  <% end %>
+  <%= link_to "進む", interviews_practice_do_path %>
+</div>
+

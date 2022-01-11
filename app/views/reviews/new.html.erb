@@ -1,0 +1,32 @@
+<div class="container">
+  <h1><<振り返り>></h1>
+  <div>
+        <%= form_with model: @review_new, url: schedule_reviews_path(@schedule), local: true do |f| %>
+        <h1><%= @schedule.title %></h1>
+      <div>
+        <%= f.radio_button :genre, 0 %>
+        <%= f.label :genre, "集団面接" %>
+      　<%= f.radio_button :genre, 1 %>
+      　<%= f.label :genre, "個人面接" %>
+      　<%= f.radio_button :genre, 2 %>
+      　<%= f.label :genre, "グループディスカッション" %>
+      </div>
+      <div class="">
+        <%= f.label :good_point, "良かった点" %>
+        <%= f.text_field :good_point %>
+      </div>
+      <div class="time">
+        <%= f.label :bad_point, "悪かった点" %>
+        <%= f.text_field :bad_point %>
+      </div>
+      <div class="content">
+        <%= f.label :introspection, "反省・課題" %>
+        <%= f.text_field :introspection %>
+      </div>
+      <div class="submit">
+        <%= f.submit %>
+      </div>
+      <% end %>
+      </div>
+
+</div>

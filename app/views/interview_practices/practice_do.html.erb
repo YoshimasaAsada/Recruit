@@ -1,0 +1,5 @@
+<h1>practice_do</h1>
+<% @practices.each do |practice| %>
+<%= practice.interview.title %>
+<% end %>
+<%= link_to "終了", interviews_practice_do_path, method: :delete %>

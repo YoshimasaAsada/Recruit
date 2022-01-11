@@ -18,6 +18,10 @@ class InterviewsController < ApplicationController
     redirect_to interviews_path
   end
 
+  def practice
+    @favorites = Favorite.where(user_id: current_user)
+  end
+
   private
 
     def interview_params

@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row">タイトル</th>
+        <td><%= @review.schedule.title %></td>
+      </tr>
+      <tr>
+        <th scope="row">ジャンル</th>
+        <td><%= @review.genre %></td>
+      </tr>
+      <tr>
+        <th scope="row">良かった点</th>
+        <td><%= @review.good_point %></td>
+      </tr>
+      <tr>
+        <th scope="row">悪かった点</th>
+        <td><%= @review.bad_point %></td>
+      </tr>
+      <tr>
+        <th scope="row">反省・課題</th>
+        <td><%= @review.introspection %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
