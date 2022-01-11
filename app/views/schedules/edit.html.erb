@@ -1,0 +1,39 @@
+<h1>schedule/edit</h1>
+<div class="container">
+<div>
+        <%= form_with(model: @schedule, local: true) do |f| %>
+      <div class="title">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div>
+        <%= f.radio_button :genre, 0 %>
+        <%= f.label :genre, "面接" %>
+      　<%= f.radio_button :genre, 1 %>
+      　<%= f.label :genre, "説明会" %>
+      　<%= f.radio_button :genre, 2 %>
+      　<%= f.label :genre, "その他" %>
+      </div>
+      <div class="time">
+        <%= f.label :start_time %>
+        <%= f.datetime_select :start_time %>
+      </div>
+      <div class="time">
+        <%= f.label :end_time %>
+        <%= f.datetime_select :end_time %>
+      </div>
+      <div class="content">
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+      </div>
+      <div class="content">
+        <%= f.label :memo %>
+        <%= f.text_field :memo %>
+      </div>
+      <div class="submit">
+        <%= f.submit %>
+      </div>
+      <% end %>
+      </div>
+    </div>
+</div>

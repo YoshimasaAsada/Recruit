@@ -1,0 +1,28 @@
+<div class="container">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row">タイトル</th>
+        <td><%= @schedule.title %></td>
+      </tr>
+      <tr>
+        <th scope="row">ジャンル</th>
+        <td><%= @schedule.genre %></td>
+      </tr>
+      <tr>
+        <th scope="row">時間</th>
+        <td><%= @schedule.start_time.strftime("%H:%M") %>~<%= @schedule.end_time.strftime("%H:%M") %></td>
+      </tr>
+      <tr>
+        <th scope="row">URL</th>
+        <td><%= @schedule.url %></td>
+      </tr>
+      <tr>
+        <th scope="row">メモ</th>
+        <td><%= @schedule.memo %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to "edit", edit_schedule_path(@schedule) %>
+  <%= link_to "振り返り", root_path %>
+</div>

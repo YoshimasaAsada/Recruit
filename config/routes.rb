@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :favorites, only: [:update]
     resource :favorites, only: [:create, :destroy]
   end
+  resources :schedules, only: [:create, :show, :edit]
 end
