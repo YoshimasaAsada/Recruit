@@ -56,6 +56,7 @@
       </div>
       <% end %>
       </div>
+      <%= link_to "振り返り一覧", reviews_path, class: "btn btn-success" %>
     </div>
     <div class="col-9">
       <%= month_calendar events: @schedules do |date, schedules| %>

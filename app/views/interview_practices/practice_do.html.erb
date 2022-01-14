@@ -1,5 +1,20 @@
-<h1>practice_do</h1>
+
+<div class="container">
+<a class="aaa">practice_do</a>
+<div class="practice">
+
+
 <% @practices.each do |practice| %>
-<%= practice.interview.title %>
+<p class="practice_contents"><%= link_to practice.interview.title %><p></br>
 <% end %>
 <%= link_to "終了", interviews_practice_do_path, method: :delete %>
+</div>
+
+</div>
+
+<script>
+const practice = document.querySelector('.aaa');
+practice.addEventListener('click', () => {
+    alert('Hellow unko');
+});
+</script>

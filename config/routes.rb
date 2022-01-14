@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :schedules, only: [:create, :show, :edit] do
     resources :reviews, only: [:create, :new, :edit, :update, :show]
   end
+  resources :reviews, only: [:index]
 end

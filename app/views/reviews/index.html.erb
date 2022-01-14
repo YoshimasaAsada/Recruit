@@ -1,0 +1,12 @@
+<h1>振り返りindex</h1>
+<div class="container">
+    <table>
+        <tbody>
+            <% @reviews.each do |review| %>
+            <tr>
+            <%= link_to review.schedule.title, schedule_review_path(review.schedule, review) %></br>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -16,6 +16,9 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+  def index
+    @reviews = current_user.reviews
+  end
 
   private
 
