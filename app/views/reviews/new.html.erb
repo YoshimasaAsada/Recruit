@@ -1,6 +1,5 @@
 <div class="container">
   <h1><<振り返り>></h1>
-  <div>
         <%= form_with model: @review_new, url: schedule_reviews_path(@schedule), local: true do |f| %>
         <h1><%= @schedule.title %></h1>
       <div>
@@ -10,6 +9,11 @@
       　<%= f.label :genre, "個人面接" %>
       　<%= f.radio_button :genre, 2 %>
       　<%= f.label :genre, "グループディスカッション" %>
+      </div>
+      <div class="interview">
+        <%= f.label :interview0, "聞かれた内容" %>
+        <%= f.text_field :interview0 %>
+        <button id="add" type="button">追加</button>
       </div>
       <div class="">
         <%= f.label :good_point, "良かった点" %>
@@ -27,6 +31,29 @@
         <%= f.submit %>
       </div>
       <% end %>
-      </div>
-
 </div>
+
+
+
+
+
+<script>
+
+$(function() {
+
+  var num = 0
+
+    $('button#add').click(function(){
+
+     num += 1
+
+    var tr_form = '' +
+      '</br><input type="text" name="review[interview'+ num + ']">' ;
+    $(tr_form).appendTo($('.interview'));
+
+
+  });
+});
+
+
+</script>

@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_054651) do
   end
 
   create_table "interviews", force: :cascade do |t|
+    t.integer "review_id"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
