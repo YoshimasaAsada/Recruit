@@ -1,31 +1,25 @@
-<h1>interview.index</h1>
-
 <div class="container">
-
   <%= link_to "マイ面接", interviews_my_page_path %>
-
-<%= form_with model:@interview_new, url: interviews_path, local:true do |f| %>
-<%= f.label :title, "タイトル"%>
-<%= f.text_field :title %>
-<%= f.submit "登録", class:"btn btn-success" %>
-<% end %>
-
-<% @interviews.each do |interview| %>
-<%= interview.title %>
-  <% if interview.favorited_by?(current_user) %>
-    <p>
-      <%= link_to interview_favorites_path(interview), method: :delete do %>
-        ♥<%= interview.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to interview_favorites_path(interview), method: :post do %>
-        ♡<%= interview.favorites.count %> いいね
-      <% end %>
-    </p>
+  <%= form_with model:@interview_new, url: interviews_path, local:true do |f| %>
+  <%= f.label :title, "タイトル"%>
+  <%= f.text_field :title %>
+  <%= f.submit "登録", class:"btn btn-success" %>
   <% end %>
-<% end %>
-
+  <% @interviews.each do |interview| %>
+    <%= interview.title %>
+    <% if interview.favorited_by?(current_user) %>
+      <p>
+        <%= link_to interview_favorites_path(interview), method: :delete do %>
+          ♥<%= interview.favorites.count %> いいね
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to interview_favorites_path(interview), method: :post do %>
+          ♡<%= interview.favorites.count %> いいね
+        <% end %>
+      </p>
+    <% end %>
+  <% end %>
 </div>
 

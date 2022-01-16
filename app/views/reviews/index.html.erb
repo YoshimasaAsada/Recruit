@@ -1,12 +1,45 @@
-<h1>振り返りindex</h1>
 <div class="container">
-    <table>
-        <tbody>
-            <% @reviews.each do |review| %>
-            <tr>
-            <%= link_to review.schedule.title, schedule_review_path(review.schedule, review) %></br>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
+    <div class="accordion" id="accordionExample">
+        <% @reviews.each do |review| %>
+            <div class="card">
+              <div class="card-header" id="heading_review<%= review.id %>">
+                <h5 class="mb-0">
+                  <button class="btn btn-outline-secondary collapsed" type="button" data-toggle="collapse" data-target="#collapse_review<%= review.id %>" aria-expanded="false" aria-controls="collapse_review<%= review.id %>">
+                    <%= review.schedule.title %>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapse_review<%= review.id %>" class="collapse" aria-labelledby="heading_review<%= review.id %>" data-parent="#accordionExample">
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <th scope="row">タイトル</th>
+                        <td><%= review.schedule.title %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">ジャンル</th>
+                        <td><%= review.genre %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">良かった点</th>
+                        <td><%= review.good_point %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">悪かった点</th>
+                        <td><%= review.bad_point %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">反省・課題</th>
+                        <td><%= review.introspection %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        <% end %>
+    </div>
 </div>
+
+

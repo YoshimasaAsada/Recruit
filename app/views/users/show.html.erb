@@ -1,8 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-4">
       <div>
-        <h1>今日の予定</h1>
+        <div class="row">
+        <h3>~今日の予定~</h3>
+        <%= link_to "振り返り一覧", reviews_path, class: "btn btn-success" %>
+        </div>
         <table class="table">
           <thead class="thead-light">
             <tr>
@@ -12,59 +15,92 @@
           </thead>
           <tbody>
             <% @today_schedules.each do |schedule| %>
-              <tr>
-                <td><%= link_to schedule.title, schedule_path(schedule) %></td>
+            <% if schedule.genre == "面接" %>
+              <tr class="table-primary">
+                <td>
+                  <div>
+                    <%= link_to schedule.title, schedule_path(schedule), class:"text-dark" %>
+                  </div>
+                </td>
                 <td><%= schedule.start_time.strftime("%H:%M") %>~<%= schedule.end_time.strftime("%H:%M") %></td>
               </tr>
+            <% elsif schedule.genre == "説明会" %>
+              <tr class="table-danger">
+                <td>
+                  <div>
+                    <%= link_to schedule.title, schedule_path(schedule), class:"text-dark"  %>
+                  </div>
+                </td>
+                <td><%= schedule.start_time.strftime("%H:%M") %>~<%= schedule.end_time.strftime("%H:%M") %></td>
+              </tr>
+              <% else %>
+              <tr class="table-success">
+                <td>
+                  <div>
+                    <%= link_to schedule.title, schedule_path(schedule), class:"text-dark"  %>
+                  </div>
+                </td>
+                <td><%= schedule.start_time.strftime("%H:%M") %>~<%= schedule.end_time.strftime("%H:%M") %></td>
+              </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
       </div>
-      <h1>予定追加</h1>
+      <h3>~予定追加~</h3>
       <div>
         <%= form_with(model: @schedule_new, local: true) do |f| %>
-      <div class="title">
-        <%= f.label :title %>
-        <%= f.text_field :title %>
+          <div class="title">
+            <%= f.label :title, "タイトル" %>
+            <%= f.text_field :title %>
+          </div>
+          <div>
+            <%= f.radio_button :genre, 0 %>
+            <%= f.label :genre, "面接" %>
+          　<%= f.radio_button :genre, 1 %>
+          　<%= f.label :genre, "説明会" %>
+          　<%= f.radio_button :genre, 2 %>
+          　<%= f.label :genre, "その他" %>
+          </div>
+          <div class="time">
+            <%= f.label :start_time, "開始時間" %></br>
+            <%= f.datetime_select :start_time %>
+          </div>
+          <div class="time">
+            <%= f.label :end_time, "終了時間" %></br>
+            <%= f.datetime_select :end_time %>
+          </div>
+          <div class="content">
+            <%= f.label :url %>
+            <%= f.text_field :url %>
+          </div>
+          <div class="content">
+            <%= f.label :memo, "メモ" %>
+            <%= f.text_field :memo %>
+          </div>
+          <div class="submit">
+            <%= f.submit %>
+          </div>
+        <% end %>
       </div>
-      <div>
-        <%= f.radio_button :genre, 0 %>
-        <%= f.label :genre, "面接" %>
-      　<%= f.radio_button :genre, 1 %>
-      　<%= f.label :genre, "説明会" %>
-      　<%= f.radio_button :genre, 2 %>
-      　<%= f.label :genre, "その他" %>
-      </div>
-      <div class="time">
-        <%= f.label :start_time %>
-        <%= f.datetime_select :start_time %>
-      </div>
-      <div class="time">
-        <%= f.label :end_time %>
-        <%= f.datetime_select :end_time %>
-      </div>
-      <div class="content">
-        <%= f.label :url %>
-        <%= f.text_field :url %>
-      </div>
-      <div class="content">
-        <%= f.label :memo %>
-        <%= f.text_field :memo %>
-      </div>
-      <div class="submit">
-        <%= f.submit %>
-      </div>
-      <% end %>
-      </div>
-      <%= link_to "振り返り一覧", reviews_path, class: "btn btn-success" %>
     </div>
-    <div class="col-9">
+    <div class="col-8">
       <%= month_calendar events: @schedules do |date, schedules| %>
           <%= date.day %>
           <% schedules.each do |schedule| %>
-          <div>
-            <%= link_to schedule.title, schedule_path(schedule) %>
-          </div>
+            <% if schedule.genre == "面接" %>
+              <div class="table-primary">
+                <%= link_to schedule.title, schedule_path(schedule), class:"text-dark"  %>
+              </div>
+            <% elsif schedule.genre == "説明会" %>
+              <div class="table-danger">
+                <%= link_to schedule.title, schedule_path(schedule), class:"text-dark"  %>
+              </div>
+            <% else %>
+              <div class="table-success">
+                <%= link_to schedule.title, schedule_path(schedule), class:"text-dark"  %>
+              </div>
+            <% end %>
           <% end %>
       <% end %>
     </div>

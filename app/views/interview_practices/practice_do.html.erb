@@ -1,25 +1,16 @@
-
 <div class="container">
-
-<div class="practice">
-
-
-<% @practices.each do |practice| %>
-<p class="practice_contents"><%= practice.interview.title %><p></br>
-<% end %>
-<%= link_to "終了", interviews_practice_do_path, method: :delete %>
+  <div class="practice">
+    <% @practices.each do |practice| %>
+      <p class="practice_contents"><%= practice.interview.title %><p></br>
+    <% end %>
+    <%= link_to "終了", interviews_practice_do_path, method: :delete %>
+  </div>
 </div>
-
-</div>
-
-
-
 
 <script>
-const practice = document.querySelector('.practice');
-practice.addEventListener('click', () => {
-  console.log(practice);
-    alert('Hellow unko');
-});
-
+  const practice = document.querySelector('.practice');
+  practice.addEventListener('click', () => {
+    console.log(practice);
+      alert('Hellow');
+  });
 </script>

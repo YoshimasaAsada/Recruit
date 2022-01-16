@@ -1,24 +1,24 @@
 <div class="container">
   <div class="form-group">
-  <%= form_with model:@gakuchika_new, url: gakuchikas_path, local:true do |f| %>
-  <%= f.label :title, "タイトル"%>
-  <%= f.text_field :title, class:"form-control" %>
-  <%= f.label :introduction_400, "400字"%>
-  <%= f.text_field :introduction_400, class:"form-control" %>
-  <%= f.label :introduction_500, "500字"%>
-  <%= f.text_field :introduction_500, class:"form-control" %>
-  <%= f.label :introduction_600, "600字"%>
-  <%= f.text_field :introduction_600, class:"form-control" %>
-  <%= f.label :introduction_700, "700字"%>
-  <%= f.text_field :introduction_700, class:"form-control" %>
-  <%= f.label :introduction_800, "800字"%>
-  <%= f.text_field :introduction_800, class:"form-control" %>
-  <%= f.label :introduction_900, "900字"%>
-  <%= f.text_field :introduction_900, class:"form-control" %>
-  <%= f.label :introduction_1000, "1000字"%>
-  <%= f.text_field :introduction_1000, class:"form-control" %>
-  <%= f.submit "登録", class:"btn btn-success" %>
-  <% end %>
+    <%= form_with model:@gakuchika_new, url: gakuchikas_path, local:true do |f| %>
+    <%= f.label :title, "タイトル"%>
+    <%= f.text_field :title, class:"form-control" %>
+    <%= f.label :introduction_400, "400字"%>
+    <%= f.text_field :introduction_400, class:"form-control" %>
+    <%= f.label :introduction_500, "500字"%>
+    <%= f.text_field :introduction_500, class:"form-control" %>
+    <%= f.label :introduction_600, "600字"%>
+    <%= f.text_field :introduction_600, class:"form-control" %>
+    <%= f.label :introduction_700, "700字"%>
+    <%= f.text_field :introduction_700, class:"form-control" %>
+    <%= f.label :introduction_800, "800字"%>
+    <%= f.text_field :introduction_800, class:"form-control" %>
+    <%= f.label :introduction_900, "900字"%>
+    <%= f.text_field :introduction_900, class:"form-control" %>
+    <%= f.label :introduction_1000, "1000字"%>
+    <%= f.text_field :introduction_1000, class:"form-control" %>
+    <%= f.submit "登録", class:"btn btn-success" %>
+    <% end %>
   </div>
 </div>
 
